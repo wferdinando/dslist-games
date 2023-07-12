@@ -12,16 +12,8 @@ public class BelongingPK {
     private Game game;
 
     @ManyToOne
-    @JoinColumn(name = "listGame_id")
-    private GameList listGame;
-    
-    public BelongingPK() {
-    }
-
-    public BelongingPK(Game game, GameList listGame) {
-        this.game = game;
-        this.listGame = listGame;
-    }
+    @JoinColumn(name = "list_id")
+    private GameList list;
 
     public Game getGame() {
         return game;
@@ -31,12 +23,12 @@ public class BelongingPK {
         this.game = game;
     }
 
-    public GameList getListGame() {
-        return listGame;
+    public GameList getList() {
+        return list;
     }
 
-    public void setListGame(GameList listGame) {
-        this.listGame = listGame;
+    public void setList(GameList list) {
+        this.list = list;
     }
 
     @Override
@@ -44,7 +36,7 @@ public class BelongingPK {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((game == null) ? 0 : game.hashCode());
-        result = prime * result + ((listGame == null) ? 0 : listGame.hashCode());
+        result = prime * result + ((list == null) ? 0 : list.hashCode());
         return result;
     }
 
@@ -62,10 +54,10 @@ public class BelongingPK {
                 return false;
         } else if (!game.equals(other.game))
             return false;
-        if (listGame == null) {
-            if (other.listGame != null)
+        if (list == null) {
+            if (other.list != null)
                 return false;
-        } else if (!listGame.equals(other.listGame))
+        } else if (!list.equals(other.list))
             return false;
         return true;
     }
