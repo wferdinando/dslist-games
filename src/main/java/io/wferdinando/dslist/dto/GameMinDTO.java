@@ -1,6 +1,7 @@
 package io.wferdinando.dslist.dto;
 
 import io.wferdinando.dslist.entities.Game;
+import io.wferdinando.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -19,6 +20,14 @@ public class GameMinDTO {
         this.year = gameEntity.getYear();
         this.imgUrl = gameEntity.getImgUrl();
         this.shortDescription = gameEntity.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection gameProjection) {
+        this.id = gameProjection.getId();
+        this.title = gameProjection.getTitle();
+        this.year = gameProjection.getYear();
+        this.imgUrl = gameProjection.getImgUrl();
+        this.shortDescription = gameProjection.getShortDescription();
     }
 
     public Long getId() {
